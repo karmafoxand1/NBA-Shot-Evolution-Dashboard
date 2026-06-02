@@ -6,7 +6,6 @@ Interactive D3.js visualization for the course project "Visualization Analysis &
 ## Run locally
 
 ```powershell
-cd NBA-Shot-Evolution-Dashboard\Code
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
@@ -27,7 +26,6 @@ NBA-Shot-Evolution-Dashboard\datasets\NBA_Shots_04_25-main
 Run:
 
 ```powershell
-cd NBA-Shot-Evolution-Dashboard\Code
 python scripts\preprocess.py
 ```
 
@@ -36,7 +34,6 @@ The script writes compact JSON files under `data/`. Court grid data is split int
 ## Test
 
 ```powershell
-cd NBA-Shot-Evolution-Dashboard\Code
 python -m unittest discover -s tests
 node --check js\app.js
 ```
