@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NBA 投篮版图的二十年演化</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">NBA regular season shot locations · 2004-2025</p>
+        <h1>NBA 投篮版图的二十年演化</h1>
+        <p class="subtitle">从中距离时代到三分时代：用协调多视图探索 445 万次投篮的空间、效率与趋势。</p>
+      </div>
+      <div class="header-stats" id="header-stats"></div>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="filters">
+        <label>
+          赛季起点
+          <select id="season-start"></select>
+        </label>
+        <label>
+          赛季终点
+          <select id="season-end"></select>
+        </label>
+        <label>
+          球队
+          <select id="team-select"></select>
+        </label>
+        <label>
+          球场指标
+          <select id="court-metric">
+            <option value="attempts">出手量</option>
+            <option value="fg_pct">命中率</option>
+            <option value="three_rate">三分占比</option>
+          </select>
+        </label>
+        <label>
+          排行榜
+          <select id="rank-mode">
+            <option value="teams">球队</option>
+            <option value="players">球员</option>
+          </select>
+        </label>
+        <button id="reset-btn" type="button">重置</button>
+      </section>
+
+      <section class="kpis" id="kpis" aria-label="summary metrics"></section>
+
+      <section class="dashboard-grid">
+        <section class="panel court-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>投篮空间分布</h2>
+              <p id="court-caption"></p>
+            </div>
+            <div class="legend" id="court-legend"></div>
+          </div>
+          <svg id="court-chart" role="img" aria-label="shot chart"></svg>
+        </section>
+
+        <section class="panel ranking-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>效率与选择排行榜</h2>
+              <p>点击条形筛选球队；球员榜用于定位高产投手。</p>
+            </div>
+          </div>
+          <svg id="ranking-chart" role="img" aria-label="ranking chart"></svg>
+        </section>
+
+        <section class="panel trend-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>联盟趋势</h2>
+              <p>三分占比、命中率和平均投篮距离随赛季变化。</p>
+            </div>
+          </div>
+          <svg id="trend-chart" role="img" aria-label="season trend chart"></svg>
+        </section>
+
+        <section class="panel zone-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>区域矩阵</h2>
+              <p>每个赛季中不同区域的出手占比，颜色越深代表占比越高。</p>
+            </div>
+          </div>
+          <svg id="zone-chart" role="img" aria-label="zone matrix"></svg>
+        </section>
+      </section>
+
+      <section class="panel compare-panel">
+        <div class="panel-heading compare-heading">
+          <div>
+            <h2>A/B 对比</h2>
+            <p>使用相同尺度比较两个赛季，观察投篮版图如何移动。</p>
+          </div>
+          <div class="compare-controls">
+            <label>左侧 <select id="compare-a"></select></label>
+            <label>右侧 <select id="compare-b"></select></label>
+          </div>
+        </div>
+        <div class="compare-courts">
+          <div>
+            <h3 id="compare-a-title"></h3>
+            <svg id="compare-a-chart" role="img" aria-label="comparison court A"></svg>
+          </div>
+          <div>
+            <h3 id="compare-b-title"></h3>
+            <svg id="compare-b-chart" role="img" aria-label="comparison court B"></svg>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="tooltip" id="tooltip" role="status"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
