@@ -6,7 +6,7 @@ Interactive D3.js visualization for the course project "Visualization Analysis &
 ## Run locally
 
 ```powershell
-cd D:\Final-Cousre-Project\Code
+cd NBA-Shot-Evolution-Dashboard\Code
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
@@ -21,13 +21,13 @@ http://127.0.0.1:8000/
 The raw CSV files are read from:
 
 ```text
-D:\Final-Cousre-Project\datasets\NBA_Shots_04_25-main
+NBA-Shot-Evolution-Dashboard\datasets\NBA_Shots_04_25-main
 ```
 
 Run:
 
 ```powershell
-cd D:\Final-Cousre-Project\Code
+cd NBA-Shot-Evolution-Dashboard\Code
 python scripts\preprocess.py
 ```
 
@@ -36,7 +36,7 @@ The script writes compact JSON files under `data/`. Court grid data is split int
 ## Test
 
 ```powershell
-cd D:\Final-Cousre-Project\Code
+cd NBA-Shot-Evolution-Dashboard\Code
 python -m unittest discover -s tests
 node --check js\app.js
 ```
